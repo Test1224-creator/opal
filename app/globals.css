@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+/* Opal brand palette */
+:root {
+  --pearl: #faf8f5; /* Background */
+  --charcoal: #1e1e24; /* Primary text */
+  --gold: #c9a96e; /* Accent */
+  --opal-blue: #a8d8e8; /* Highlight */
+  --blush: #f2c6d0; /* Highlight 2 */
+
+  --background: var(--pearl);
+  --foreground: var(--charcoal);
+
+  /* Iridescent opal gradient for hero sections and buttons */
+  --opal-gradient: linear-gradient(135deg, var(--opal-blue), var(--blush));
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-pearl: var(--pearl);
+  --color-charcoal: var(--charcoal);
+  --color-gold: var(--gold);
+  --color-opal-blue: var(--opal-blue);
+  --color-blush: var(--blush);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@utility bg-opal-gradient {
+  background-image: var(--opal-gradient);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
