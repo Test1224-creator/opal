@@ -1,5 +1,5 @@
 import Image from "next/image";
-import commentImg from "../images/comment.png";
+import commentImg from "../images/comment.webp";
 import "../styles/testimonial.css";
 
 function Star() {

@@ -2,12 +2,12 @@
 
 import Image, { type StaticImageData } from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
-import collection1 from "../images/collection1.png";
-import collection2 from "../images/collection2.png";
-import collection3 from "../images/collection3.png";
-import collection4 from "../images/collection4.png";
-import collection5 from "../images/collection5.png";
-import collection6 from "../images/collection6.png";
+import collection1 from "../images/collection1.webp";
+import collection2 from "../images/collection2.webp";
+import collection3 from "../images/collection3.webp";
+import collection4 from "../images/collection4.webp";
+import collection5 from "../images/collection5.webp";
+import collection6 from "../images/collection6.webp";
 import "../styles/collections.css";
 
 type Product = {

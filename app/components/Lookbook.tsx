@@ -1,7 +1,7 @@
 import Image from "next/image";
-import modelSide from "../images/model-side.png";
-import earrings1 from "../images/earrings-1.png";
-import earrings2 from "../images/earrings-2.png";
+import modelSide from "../images/model-side.webp";
+import earrings1 from "../images/earrings-1.webp";
+import earrings2 from "../images/earrings-2.webp";
 import "../styles/lookbook.css";
 
 export default function Lookbook() {

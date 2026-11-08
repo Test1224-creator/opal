@@ -1,6 +1,6 @@
 import Image from "next/image";
-import heroModel from "../images/hero-model.png";
-import heroScene from "../images/herosection.png";
+import heroModel from "../images/hero-model.webp";
+import heroScene from "../images/herosection.webp";
 import "../styles/hero.css";
 
 function Sparkle({ className }: { className: string }) {

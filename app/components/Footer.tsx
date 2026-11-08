@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import { useState, type FormEvent } from "react";
-import ring from "../images/footer.png";
-import logo from "../images/logo.png";
+import ring from "../images/footer.webp";
+import logo from "../images/logo.webp";
 import "../styles/footer.css";
 
 const SHOP_LINKS = [
