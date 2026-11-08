@@ -1,0 +1,339 @@
+/* Hero section */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+  overflow: hidden;
+  isolation: isolate;
+  --card-h: 176px;
+  --card-bottom: 6%;
+  background:
+    radial-gradient(ellipse 45% 55% at 50% 50%, rgba(250, 248, 245, 0.9), rgba(250, 248, 245, 0) 70%),
+    linear-gradient(115deg, var(--opal-blue) 0%, #d7ebf3 22%, var(--pearl) 48%, #f8e6ea 72%, var(--blush) 100%);
+}
+
+/* Thin gold ring behind the model */
+.hero__ring {
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  top: 14%;
+  width: min(44vw, 640px);
+  height: 80%;
+  border: 1.5px solid rgba(201, 169, 110, 0.55);
+  border-radius: 50%;
+  transform: translateX(-46%) rotate(12deg);
+  pointer-events: none;
+}
+
+/* Sparkles */
+.hero__sparkle {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Both sparkles sit in the open space above the card */
+.hero__sparkle--gold {
+  right: 9%;
+  bottom: calc(var(--card-bottom) + var(--card-h) + 28px);
+  width: 42px;
+  fill: var(--gold);
+  transform: rotate(-8deg);
+}
+
+.hero__sparkle--soft {
+  right: 21%;
+  bottom: calc(var(--card-bottom) + var(--card-h) + 44px);
+  width: 84px;
+  fill: rgba(255, 255, 255, 0.8);
+}
+
+/* Big background word */
+.hero__title {
+  position: absolute;
+  z-index: 1;
+  top: max(118px, 15vh);
+  left: 50%;
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  /* Limited by width AND height so it never runs into the price or card */
+  font-size: min(11.5vw, 22vh, 13rem);
+  line-height: 1;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--gold);
+  background: linear-gradient(180deg, #dcc394 0%, var(--gold) 55%, var(--gold-deep) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transform: translateX(-50%) scaleY(1.45);
+  transform-origin: top center;
+  user-select: none;
+}
+
+/* Model cut-out, in front of the word */
+.hero__model {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  bottom: 0;
+  height: 82%;
+  transform: translateX(-50%);
+}
+
+.hero__model-img {
+  width: auto;
+  height: 100%;
+  filter: drop-shadow(0 20px 40px rgba(30, 30, 36, 0.12));
+}
+
+/* Price */
+.hero__price {
+  position: absolute;
+  z-index: 3;
+  left: 7%;
+  /* Sits just above the Play button, not tied to the heading */
+  bottom: calc(7% + 82px + 48px);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.hero__amount {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 4.2vw, 4.6rem);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--gold-deep);
+}
+
+.hero__label {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 2vw, 2.1rem);
+  font-weight: 500;
+  color: var(--charcoal);
+}
+
+/* Play overview */
+.hero__play {
+  position: absolute;
+  z-index: 3;
+  left: 7%;
+  bottom: 7%;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.hero__play-btn {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  background: var(--pearl);
+  box-shadow: 0 10px 30px rgba(30, 30, 36, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.hero__play-btn::after {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border: 1px solid rgba(201, 169, 110, 0.6);
+  border-radius: 50%;
+  animation: hero-pulse 2.4s ease-out infinite;
+}
+
+.hero__play-btn svg {
+  width: 28px;
+  height: 28px;
+  margin-left: 4px;
+  fill: var(--gold-deep);
+}
+
+.hero__play:hover .hero__play-btn {
+  transform: scale(1.06);
+}
+
+.hero__play-text {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 2vw, 2rem);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--charcoal);
+}
+
+@keyframes hero-pulse {
+  0% {
+    transform: scale(0.9);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.25);
+    opacity: 0;
+  }
+}
+
+/* Bottom-right promo card */
+.hero__card {
+  position: absolute;
+  z-index: 3;
+  right: 4.5%;
+  bottom: var(--card-bottom);
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  width: min(400px, 30vw);
+  height: var(--card-h);
+  padding-right: 24px;
+  overflow: hidden;
+  border-radius: 18px;
+  background: rgba(242, 198, 208, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 14px 40px rgba(30, 30, 36, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.hero__card-img {
+  position: relative;
+  flex-shrink: 0;
+  width: 42%;
+  height: 100%;
+}
+
+.hero__card-photo {
+  object-fit: cover;
+  object-position: 69% 30%;
+}
+
+.hero__card-text {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(1.3rem, 1.8vw, 1.9rem);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--charcoal);
+}
+
+/* Short screens: less vertical room, drop the big soft sparkle */
+@media (max-height: 700px) {
+  .hero__sparkle--soft {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__play-btn::after {
+    animation: none;
+  }
+}
+
+/* Tablet */
+@media (max-width: 1100px) {
+  .hero {
+    --card-h: 140px;
+  }
+
+  .hero__card {
+    width: 300px;
+    gap: 16px;
+  }
+}
+
+/* Mobile: stack everything */
+@media (max-width: 768px) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 110px 16px 40px;
+  }
+
+  .hero__title {
+    position: relative;
+    top: auto;
+    left: auto;
+    font-size: 15vw;
+    transform: scaleY(1.45);
+    margin-bottom: 16vw;
+  }
+
+  .hero__ring {
+    top: 90px;
+    width: 78vw;
+    height: 60%;
+  }
+
+  .hero__model {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    height: auto;
+    width: min(88vw, 420px);
+    margin-top: -26vw;
+    transform: none;
+  }
+
+  .hero__model-img {
+    width: 100%;
+    height: auto;
+    -webkit-mask-image: linear-gradient(to bottom, #000 82%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 82%, transparent 100%);
+  }
+
+  .hero__sparkle--soft {
+    display: none;
+  }
+
+  .hero__sparkle--gold {
+    right: 8%;
+    top: 46%;
+    bottom: auto;
+    width: 32px;
+  }
+
+  .hero__price,
+  .hero__play,
+  .hero__card {
+    position: relative;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+  }
+
+  .hero__price {
+    align-items: center;
+    margin-top: 28px;
+    text-align: center;
+  }
+
+  .hero__play {
+    margin-top: 28px;
+  }
+
+  .hero__play-btn {
+    width: 64px;
+    height: 64px;
+  }
+
+  .hero__card {
+    width: 100%;
+    max-width: 380px;
+    height: 150px;
+    margin-top: 32px;
+  }
+}

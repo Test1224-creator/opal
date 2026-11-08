@@ -5,8 +5,13 @@
   --pearl: #faf8f5; /* Background */
   --charcoal: #1e1e24; /* Primary text */
   --gold: #c9a96e; /* Accent */
+  --gold-deep: #a8864a; /* Accent for text on light backgrounds */
   --opal-blue: #a8d8e8; /* Highlight */
   --blush: #f2c6d0; /* Highlight 2 */
+
+  /* Shared page layout: same side space and max content width for every section (except the hero) */
+  --gutter: clamp(16px, 5vw, 96px);
+  --content-max: 1600px;
 
   --background: var(--pearl);
   --foreground: var(--charcoal);
@@ -21,10 +26,12 @@
   --color-pearl: var(--pearl);
   --color-charcoal: var(--charcoal);
   --color-gold: var(--gold);
+  --color-gold-deep: var(--gold-deep);
   --color-opal-blue: var(--opal-blue);
   --color-blush: var(--blush);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-jost), system-ui, sans-serif;
+  --font-serif: var(--font-cormorant), Georgia, serif;
+  --font-display: var(--font-cormorant), Georgia, serif;
 }
 
 @utility bg-opal-gradient {
@@ -34,5 +41,5 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
 }

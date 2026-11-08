@@ -1,0 +1,80 @@
+/* Lookbook: one tall model shot + two stacked product shots */
+.lookbook {
+  padding: clamp(24px, 3vw, 48px) var(--gutter) clamp(24px, 3vw, 40px);
+  background: var(--pearl);
+}
+
+.lookbook__grid {
+  --gap: clamp(8px, 0.8vw, 14px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: var(--gap);
+  /* Fits in one screen (leaves room for the floating navbar) */
+  height: clamp(440px, calc(100svh - 70px), 820px);
+  max-width: var(--content-max);
+  margin: 0 auto;
+}
+
+.lookbook__tile {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  background: #f3ebe9; /* matches the photo backdrops */
+}
+
+/* Tall left tile spans both rows */
+.lookbook__tile--model {
+  grid-row: span 2;
+}
+
+.lookbook__img {
+  object-fit: cover;
+  transition: transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.lookbook__img--model {
+  object-position: 45% center;
+}
+
+.lookbook__tile:hover .lookbook__img {
+  transform: scale(1.04);
+}
+
+/* Soft gold hairline on hover */
+.lookbook__tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(201, 169, 110, 0);
+  pointer-events: none;
+  transition: border-color 0.4s ease;
+}
+
+.lookbook__tile:hover::after {
+  border-color: rgba(201, 169, 110, 0.6);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lookbook__img {
+    transition: none;
+  }
+}
+
+/* Mobile: model full width on top, product shots side by side below */
+@media (max-width: 640px) {
+  .lookbook__grid {
+    grid-template-rows: none;
+    height: auto;
+  }
+
+  .lookbook__tile {
+    aspect-ratio: 1 / 1;
+  }
+
+  .lookbook__tile--model {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    aspect-ratio: 4 / 5;
+  }
+}
